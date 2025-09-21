@@ -1,0 +1,168 @@
+html,
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 2rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e); /* upgrade bg */
+   color: #eee;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav .title {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #fff;
+}
+
+nav ul {
+   list-style: none;
+   display: flex;
+   gap: 1.5rem;
+   margin: 0;
+   padding: 0;
+}
+
+nav a {
+   text-decoration: none;
+   color: #eee;
+   font-weight: 500;
+   transition: color 0.2s ease, border-bottom 0.2s ease;
+   padding-bottom: 0.25rem;
+}
+
+nav a:hover {
+   color: #4caf50;
+   border-bottom: 2px solid #4caf50;
+}
+
+nav a.active {
+   color: #4caf50;
+   border-bottom: 2px solid #4caf50;
+   font-weight: 600;
+}
+
+.hero {
+   position: relative;
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.hero img {
+   width: 100%;
+   height: auto;
+   display: block;
+   filter: brightness(60%);
+}
+
+.hero .content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   color: white;
+   margin: 0;
+   padding: 0;
+}
+
+.hero .content h2 {
+   font-size: 2.5rem;
+   margin-bottom: 0;
+}
+
+.hero .content p {
+   margin: 0;
+   padding: 5px 0 0 0;
+   font-size: 1.1rem;
+}
+
+.about {
+   max-width: 1000px;
+   margin: 3rem auto;
+   padding: 2rem;
+   background-color: #f9f9f9;
+   border-radius: 8px;
+   text-align: center;
+}
+
+.about h2 {
+   font-size: 2rem;
+   margin-bottom: 1rem;
+}
+
+.about p {
+   font-size: 1.1rem;
+   line-height: 1.6;
+}
+
+.advantages {
+   max-width: 1100px;
+   margin: 3rem auto;
+   text-align: center;
+   padding: 0 1rem;
+}
+
+.advantages h2 {
+   font-size: 2rem;
+   margin-bottom: 2rem;
+}
+
+.advantages-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 1.5rem;
+}
+
+.advantage-card {
+   background: #fff;
+   padding: 2rem 1.5rem;
+   border-radius: 10px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.advantage-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+   font-size: 2rem;
+   margin-bottom: 1rem;
+   display: inline-block;
+}
+
+.advantage-card:nth-child(1) {
+   background: #f0f8ff;
+}
+.advantage-card:nth-child(2) {
+   background: #f5fff0;
+}
+.advantage-card:nth-child(3) {
+   background: #fffaf0;
+}
+.advantage-card:nth-child(4) {
+   background: #f9f0ff;
+}
+
+footer {
+   text-align: center;
+   padding: 1.5rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e);
+   color: #eee;
+   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+   font-size: 0.9rem;
+   position: relative;
+}
+
+footer p {
+   margin: 0.5rem 0;
+}
