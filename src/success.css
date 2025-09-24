@@ -1,0 +1,132 @@
+html,
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 2rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e); /* upgrade bg */
+   color: #eee;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav .title {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #fff;
+}
+
+nav ul {
+   list-style: none;
+   display: flex;
+   gap: 1.5rem;
+   margin: 0;
+   padding: 0;
+}
+
+nav a {
+   text-decoration: none;
+   color: #eee;
+   font-weight: 500;
+   transition: color 0.2s ease, border-bottom 0.2s ease;
+   padding-bottom: 0.25rem;
+}
+
+nav a:hover {
+   color: #4caf50;
+   border-bottom: 2px solid #4caf50;
+}
+
+nav a.active {
+   color: #4caf50;
+   border-bottom: 2px solid #4caf50;
+   font-weight: 600;
+}
+
+/* Success Container */
+.success-container {
+   min-height: 80vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #f4f6f9;
+   padding: 2rem;
+}
+
+/* Success Card */
+.success-card {
+   background: #fff;
+   padding: 2.5rem 3rem;
+   border-radius: 12px;
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   max-width: 500px;
+   width: 100%;
+   animation: fadeIn 0.5s ease;
+}
+
+.success-card .icon {
+   font-size: 3rem;
+   margin-bottom: 1rem;
+   color: #4caf50;
+}
+
+.success-card h2 {
+   font-size: 1.8rem;
+   margin-bottom: 0.8rem;
+   color: #333;
+}
+
+.success-card p {
+   font-size: 1rem;
+   color: #555;
+   margin-bottom: 2rem;
+}
+
+/* Button */
+.success-card .back-btn {
+   display: inline-block;
+   padding: 0.8rem 1.5rem;
+   background: linear-gradient(135deg, #4caf50, #45a049);
+   color: #fff;
+   font-weight: 600;
+   border-radius: 8px;
+   text-decoration: none;
+   transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.success-card .back-btn:hover {
+   background: linear-gradient(135deg, #45a049, #3e9142);
+   transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+   text-align: center;
+   padding: 1.5rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e);
+   color: #eee;
+   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+   font-size: 0.9rem;
+   position: relative;
+}
+
+footer p {
+   margin: 0.5rem 0;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}

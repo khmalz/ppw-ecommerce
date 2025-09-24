@@ -72,6 +72,11 @@ nav a.active {
    transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.product-header button a {
+   text-decoration: none;
+   color: white;
+}
+
 .product-grid {
    display: grid;
    grid-template-columns: repeat(3, 1fr);

@@ -1,0 +1,140 @@
+html,
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 2rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e); /* upgrade bg */
+   color: #eee;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav .title {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #fff;
+}
+
+nav ul {
+   list-style: none;
+   display: flex;
+   gap: 1.5rem;
+   margin: 0;
+   padding: 0;
+}
+
+nav a {
+   text-decoration: none;
+   color: #eee;
+   font-weight: 500;
+   transition: color 0.2s ease, border-bottom 0.2s ease;
+   padding-bottom: 0.25rem;
+}
+
+nav a:hover {
+   color: #4caf50;
+   border-bottom: 2px solid #4caf50;
+}
+
+nav a.active {
+   color: #4caf50;
+   border-bottom: 2px solid #4caf50;
+   font-weight: 600;
+}
+
+/* Main Content */
+.checkout-container {
+   min-height: calc(100vh - 140px); /* biar full screen dikurangi nav+footer */
+   padding: 2rem;
+   background-color: #f9f9f9;
+}
+
+.checkout-container h2 {
+   margin-bottom: 1.5rem;
+   text-align: center;
+   color: #333;
+}
+
+.checkout-table {
+   width: 100%;
+   border-collapse: collapse;
+   background: #fff;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   overflow: hidden;
+}
+
+.checkout-table th,
+.checkout-table td {
+   padding: 1rem;
+   text-align: left;
+   border-bottom: 1px solid #ddd;
+}
+
+.checkout-table th {
+   background-color: #4caf50;
+   color: #fff;
+   text-transform: uppercase;
+   font-size: 0.9rem;
+}
+
+.checkout-table tfoot td {
+   font-weight: bold;
+   background-color: #f1f1f1;
+}
+
+.total-label {
+   text-align: right;
+}
+
+.total-value {
+   color: #4caf50;
+   font-size: 1rem;
+}
+
+/* Checkout Button */
+.checkout-action {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 1.5rem;
+}
+
+.checkout-btn {
+   padding: 0.8rem 2rem;
+   background: linear-gradient(135deg, #4caf50, #45a049);
+   color: #fff;
+   font-weight: 600;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background 0.2s ease, transform 0.2s ease;
+   font-size: 1rem;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   text-decoration: none;
+}
+
+.checkout-btn:hover {
+   background: linear-gradient(135deg, #45a049, #3e9142);
+   transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+   text-align: center;
+   padding: 1.5rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e);
+   color: #eee;
+   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+   font-size: 0.9rem;
+   position: relative;
+}
+
+footer p {
+   margin: 0.5rem 0;
+}
