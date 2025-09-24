@@ -5,23 +5,23 @@ body {
    box-sizing: border-box;
 }
 
-nav {
+.navbar {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 1rem 2rem;
-   background: linear-gradient(135deg, #2c3e50, #34495e); /* upgrade bg */
+   padding: 0.8rem 2rem;
+   background: linear-gradient(135deg, #2c3e50, #34495e);
    color: #eee;
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-nav .title {
-   font-size: 1.5rem;
-   font-weight: bold;
-   color: #fff;
+.navbar-logo img {
+   height: 40px;
+   width: auto;
+   display: block;
 }
 
-nav ul {
+.navbar-items {
    list-style: none;
    display: flex;
    gap: 1.5rem;
@@ -29,7 +29,7 @@ nav ul {
    padding: 0;
 }
 
-nav a {
+.navbar-item a {
    text-decoration: none;
    color: #eee;
    font-weight: 500;
@@ -37,12 +37,12 @@ nav a {
    padding-bottom: 0.25rem;
 }
 
-nav a:hover {
+.navbar-item a:hover {
    color: #4caf50;
    border-bottom: 2px solid #4caf50;
 }
 
-nav a.active {
+.navbar-item a.active {
    color: #4caf50;
    border-bottom: 2px solid #4caf50;
    font-weight: 600;
