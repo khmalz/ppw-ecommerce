@@ -13,13 +13,18 @@ body {
    background: linear-gradient(135deg, #2c3e50, #34495e);
    color: #eee;
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-   flex-wrap: wrap;
 }
 
 .navbar-logo img {
    height: 5rem;
    width: 5rem;
    display: block;
+}
+
+.navbar-right {
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
 }
 
 .navbar-items {
@@ -49,25 +54,37 @@ body {
    font-weight: 600;
 }
 
+.cart-btn {
+   font-size: 1.5rem;
+   text-decoration: none;
+   color: #eee;
+   transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.cart-btn:hover {
+   color: #4caf50;
+   transform: scale(1.15);
+}
+
 @media (max-width: 768px) {
    .navbar {
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
+      align-items: flex-start;
    }
 
-   .navbar-logo {
-      margin-bottom: 0.8rem;
+   .navbar-right {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
    }
 
    .navbar-items {
-      align-items: center;
       gap: 1rem;
    }
 
-   .navbar-items .navbar-item {
-      text-align: center;
+   .cart-btn {
+      font-size: 1.8rem;
    }
 }
 
