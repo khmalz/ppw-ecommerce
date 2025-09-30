@@ -55,7 +55,9 @@ body {
 }
 
 .cart-btn {
-   font-size: 1.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    text-decoration: none;
    color: #eee;
    transition: color 0.2s ease, transform 0.2s ease;
@@ -64,6 +66,11 @@ body {
 .cart-btn:hover {
    color: #4caf50;
    transform: scale(1.15);
+}
+
+.cart-icon {
+   width: 28px;
+   height: 28px;
 }
 
 @media (max-width: 768px) {
@@ -77,14 +84,16 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 0.8rem;
    }
 
    .navbar-items {
       gap: 1rem;
    }
 
-   .cart-btn {
-      font-size: 1.8rem;
+   .cart-icon {
+      width: 32px;
+      height: 32px;
    }
 }
 
