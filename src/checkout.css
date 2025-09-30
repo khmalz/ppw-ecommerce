@@ -10,13 +10,27 @@
    color: #333;
 }
 
+.checkout-table-wrapper {
+   width: 100%;
+   overflow-x: auto;
+}
+
 .checkout-table {
    width: 100%;
    border-collapse: collapse;
+   min-width: 600px;
    background: #fff;
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
    border-radius: 8px;
-   overflow: hidden;
+}
+
+.checkout-table-wrapper::-webkit-scrollbar {
+   height: 8px;
+}
+
+.checkout-table-wrapper::-webkit-scrollbar-thumb {
+   background: #ccc;
+   border-radius: 4px;
 }
 
 .checkout-table th,
@@ -47,7 +61,6 @@
    font-size: 1rem;
 }
 
-/* Checkout Button */
 .checkout-action {
    display: flex;
    justify-content: flex-end;

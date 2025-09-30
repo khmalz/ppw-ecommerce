@@ -9,10 +9,11 @@ body {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 0.1rem 2rem;
+   padding: 0.5rem 2rem;
    background: linear-gradient(135deg, #2c3e50, #34495e);
    color: #eee;
    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+   flex-wrap: wrap;
 }
 
 .navbar-logo img {
@@ -46,6 +47,28 @@ body {
    color: #4caf50;
    border-bottom: 2px solid #4caf50;
    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+   .navbar {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+   }
+
+   .navbar-logo {
+      margin-bottom: 0.8rem;
+   }
+
+   .navbar-items {
+      align-items: center;
+      gap: 1rem;
+   }
+
+   .navbar-items .navbar-item {
+      text-align: center;
+   }
 }
 
 footer {

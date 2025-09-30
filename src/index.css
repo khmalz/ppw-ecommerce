@@ -143,3 +143,53 @@
 .best-seller .best-seller-link a:hover {
    border-color: #4caf50;
 }
+
+@media (max-width: 992px) {
+   .hero-container {
+      height: 60vh;
+   }
+
+   .hero .content h2 {
+      font-size: 2.2rem;
+   }
+
+   .hero .content p {
+      font-size: 1rem;
+   }
+
+   .best-seller .best-seller-card {
+      flex: 1 1 calc(50% - 2rem);
+   }
+}
+
+@media (max-width: 600px) {
+   .hero-container {
+      height: 50vh;
+   }
+
+   .hero .content h2 {
+      font-size: 1.8rem;
+   }
+
+   .hero .content p {
+      font-size: 0.9rem;
+   }
+
+   .best-seller .best-seller-cards {
+      gap: 1.5rem;
+      padding: 0 1rem;
+   }
+
+   .best-seller .best-seller-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+   }
+
+   .best-seller .best-seller-title {
+      font-size: 1.6rem;
+   }
+
+   .best-seller .best-seller-link a {
+      font-size: 0.9rem;
+   }
+}

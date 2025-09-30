@@ -108,3 +108,83 @@
 .advantage-card:nth-child(4) {
    background: #f9f0ff;
 }
+
+@media (max-width: 992px) {
+   .hero-container {
+      height: 60vh;
+   }
+
+   .hero .content h2 {
+      font-size: 2.2rem;
+   }
+
+   .hero .content p {
+      font-size: 1rem;
+   }
+
+   .about {
+      margin: 2rem 1rem;
+      padding: 1.5rem;
+   }
+
+   .about h2 {
+      font-size: 1.8rem;
+   }
+
+   .about p {
+      font-size: 1rem;
+   }
+
+   .advantages h2 {
+      font-size: 1.8rem;
+   }
+}
+
+@media (max-width: 600px) {
+   .hero-container {
+      height: 50vh;
+   }
+
+   .hero .content h2 {
+      font-size: 1.8rem;
+   }
+
+   .hero .content p {
+      font-size: 0.9rem;
+   }
+
+   .about {
+      margin: 1.5rem 1rem;
+      padding: 1.2rem;
+   }
+
+   .about h2 {
+      font-size: 1.5rem;
+   }
+
+   .about p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+   }
+
+   .advantages {
+      margin: 2rem 1rem;
+   }
+
+   .advantages h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+   }
+
+   .advantages-grid {
+      gap: 1rem;
+   }
+
+   .advantage-card {
+      padding: 1.5rem 1rem;
+   }
+
+   .icon {
+      font-size: 1.8rem;
+   }
+}
