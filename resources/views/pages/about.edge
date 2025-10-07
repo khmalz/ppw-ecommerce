@@ -1,0 +1,92 @@
+@layouts.main({ title: "About" })
+  @slot("content")
+    {{-- Hero Section --}}
+    <section aria-labelledby="hero-title" class="relative w-full">
+      <div class="relative w-full h-[80vh] overflow-hidden md:h-[60vh] sm:h-[50vh]">
+        <img
+          src="https://picsum.photos/1200/400?random=10"
+          alt="About Quick Banner"
+          class="w-full h-full object-cover brightness-60"
+        />
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
+          <h2 id="hero-title" class="text-5xl font-bold mb-2 md:text-4xl sm:text-3xl">
+            About Quick
+          </h2>
+          <p class="text-lg md:text-base sm:text-sm">
+            Your One-Stop Shop for All Your Online Needs
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {{-- About Section --}}
+    <section
+      class="max-w-4xl mx-auto my-12 p-8 bg-gray-50 rounded-lg text-center md:my-8 md:p-6 sm:my-6 sm:p-4"
+      aria-labelledby="about-title"
+    >
+      <h2 id="about-title" class="text-3xl font-semibold mb-4 md:text-2xl sm:text-xl">
+        Why Choose Quick?
+      </h2>
+      <p class="text-lg leading-relaxed text-gray-700 md:text-base sm:text-sm">
+        Quick adalah platform e-commerce modern yang dirancang untuk memudahkan pengguna
+        dalam menemukan dan membeli produk favorit mereka tanpa kebingungan.
+        Dengan fokus pada kecepatan, kenyamanan, dan pengalaman terbaik, Quick menjadi
+        solusi belanja online yang simpel dan terpercaya.
+      </p>
+    </section>
+
+    @let(advantages = [
+      {
+        icon: '⚡',
+        title: 'Mudah & Cepat',
+        description: 'Proses belanja sederhana, mulai dari memilih produk hingga checkout bisa dilakukan dalam hitungan detik.',
+        color: 'bg-blue-50'
+      },
+      {
+        icon: '✅',
+        title: 'Produk Berkualitas',
+        description: 'Kami hanya menyediakan produk pilihan dengan kualitas terbaik dan terpercaya.',
+        color: 'bg-green-50'
+      },
+      {
+        icon: '💰',
+        title: 'Harga Terjangkau',
+        description: 'Quick menghadirkan harga kompetitif agar semua orang bisa menikmati pengalaman belanja terbaik.',
+        color: 'bg-yellow-50'
+      },
+      {
+        icon: '📞',
+        title: 'Layanan Pelanggan 24/7',
+        description: 'Tim support kami siap membantu Anda kapanpun, agar pengalaman belanja tetap nyaman.',
+        color: 'bg-purple-50'
+      }
+    ])
+
+    <section
+      class="max-w-5xl mx-auto my-12 px-4 text-center md:my-8 sm:my-6"
+      aria-labelledby="advantages-title"
+    >
+      <h2 id="advantages-title" class="text-3xl font-semibold mb-8 md:text-2xl sm:text-xl">
+        Our Advantages
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4">
+        @each(advantage in advantages)
+          <div
+            class="{{ advantage.color }} p-8 rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-transform duration-200"
+          >
+            <div class="text-4xl mb-4">
+              {{ advantage.icon }}
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              {{ advantage.title }}
+            </h3>
+            <p class="text-gray-600">
+              {{ advantage.description }}
+            </p>
+          </div>
+        @endeach
+      </div>
+    </section>
+  @endslot
+@end

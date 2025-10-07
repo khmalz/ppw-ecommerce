@@ -1,0 +1,23 @@
+@layouts.main({ title: 'Products' })
+  @slot('content')
+    <section class="flex justify-between items-center px-8 py-4">
+      <h2 class="text-xl font-semibold">
+        List Produk
+      </h2>
+      <a
+        href="{{ route('checkout') }}"
+        class="bg-gradient-to-br from-green-500 to-green-600 text-white font-semibold px-4 py-2 rounded-md hover:from-green-600 hover:to-green-700 transition"
+      >
+        Checkout
+      </a>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+      @each(product in products)
+        @!productCard({
+          product: product
+        })
+      @endeach
+    </section>
+  @endslot
+@end

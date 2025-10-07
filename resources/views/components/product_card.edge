@@ -1,0 +1,22 @@
+<div
+  class="flex flex-col rounded-md overflow-hidden bg-white shadow-md hover:shadow-xl hover:-translate-y-2 transition cursor-pointer"
+>
+  <img src="{{ product.image }}" alt="{{ product.name }}" class="w-full h-52 object-cover" />
+
+  <div class="flex-grow text-center px-4 py-3">
+    <h3 class="text-lg font-semibold text-gray-800">
+      {{ product.name }}
+    </h3>
+  </div>
+
+  <div class="flex justify-between items-center px-4 py-3 border-t border-gray-100 bg-gray-50">
+    <p class="text-green-600 font-bold">
+      ${{ product.price }}
+    </p>
+    <button
+      class="bg-gradient-to-br from-green-500 to-green-600 text-white font-semibold px-4 py-2 rounded-md hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition"
+    >
+      Buy
+    </button>
+  </div>
+</div>

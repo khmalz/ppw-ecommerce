@@ -1,0 +1,90 @@
+@layouts.main({ title: "Checkout" })
+  @slot('content')
+
+    <main class="min-h-[calc(100vh-140px)] p-8 bg-gray-50">
+      <h2 class="text-center text-2xl font-semibold text-gray-800 mb-6">
+        Checkout
+      </h2>
+
+      <div class="overflow-x-auto w-full">
+        <table class="min-w-[600px] w-full border-collapse bg-white rounded-lg shadow-md">
+          <thead>
+            <tr class="bg-green-600 text-white uppercase text-sm">
+              <th class="py-3 px-4 text-left">
+                No
+              </th>
+              <th class="py-3 px-4 text-left">
+                Nama Produk
+              </th>
+              <th class="py-3 px-4 text-left">
+                Quantity
+              </th>
+              <th class="py-3 px-4 text-left">
+                Harga
+              </th>
+              <th class="py-3 px-4 text-left">
+                Subtotal
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="py-3 px-4">
+                1
+              </td>
+              <td class="py-3 px-4">
+                Gaming Laptop
+              </td>
+              <td class="py-3 px-4">
+                2
+              </td>
+              <td class="py-3 px-4">
+                $1000
+              </td>
+              <td class="py-3 px-4">
+                $2000
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4">
+                2
+              </td>
+              <td class="py-3 px-4">
+                Bag
+              </td>
+              <td class="py-3 px-4">
+                2
+              </td>
+              <td class="py-3 px-4">
+                $18
+              </td>
+              <td class="py-3 px-4">
+                $36
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="bg-gray-100 font-semibold">
+              <td colspan="4" class="text-right py-3 px-4">
+                Total
+              </td>
+              <td class="text-green-600 py-3 px-4">
+                $2036
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="flex justify-end mt-6">
+        <a
+          href="/success"
+          class="inline-block bg-gradient-to-br from-green-600 to-green-500 text-white font-semibold px-6 py-3 rounded-md shadow-md hover:scale-105 transition-transform duration-200"
+        >
+          Checkout Now
+      </a>
+      </div>
+    </main>
+
+  @endslot
+@end
