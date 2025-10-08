@@ -1,0 +1,64 @@
+@layouts.auth({ title: 'Login' })
+  @slot('content')
+    <h1 class="text-2xl font-semibold text-center mb-6">
+      Sign In to Your Account
+    </h1>
+
+    <form method="POST" action="{{ route('login.store') }}" class="space-y-4">
+      {{ csrfField() }}
+      @flashMessage('error')
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          {{ $message }}
+        </div>
+      @endif
+      
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <input
+          name="email"
+          type="email"
+          class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+          placeholder="email@example.com"
+          value="{{ old('email') || '' }}"
+          required
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Password</label>
+        <input
+          name="password"
+          type="password"
+          class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+          placeholder="********"
+          required
+        />
+      </div>
+
+      <input type="hidden" name="users_data" id="users-data-input" />
+
+      <button
+        type="submit"
+        class="w-full py-2.5 mt-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all"
+      >Login</button>
+
+      <p class="text-center text-sm text-gray-500 mt-3">
+        Don't have an account?
+        <a href="{{ route('register.index') }}" class="text-green-600 hover:underline">Register</a>
+      </p>
+    </form>
+  @endslot
+  
+@end
+
+@pushOnceTo("scripts")
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const usersJsonString = localStorage.getItem("users") || "[]";
+      const hiddenInput = document.getElementById("users-data-input");
+      if (hiddenInput) {
+        hiddenInput.value = usersJsonString;
+      }
+    });
+  </script>
+@end

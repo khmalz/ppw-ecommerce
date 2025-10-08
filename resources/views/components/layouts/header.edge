@@ -3,16 +3,16 @@
 >
   <div class="navbar-logo">
     <a href="{{ route('home') }}">
-      <img src="assets/quick-logo.png" alt="Quick Logo" class="h-20 w-20 block" />
+      <img src="/assets/quick-logo.png" alt="Quick Logo" class="h-16 w-16 block" />
     </a>
   </div>
 
-  <div class="flex items-center gap-6">
+  <div class="flex items-center gap-8">
     <ul class="flex gap-6 list-none m-0 p-0">
       <li>
         <a
           href="{{ route('home') }}"
-          class="hover:text-green-400 font-medium {{ request.url() === route('home') ? 'border-b-2 border-green-400 text-green-400 font-semibold' : '' }}"
+          class="hover:text-green-400 font-medium transition-colors {{ request.url() === route('home') ? 'border-b-2 border-green-400 text-green-400 font-semibold' : '' }}"
         >
           Home
         </a>
@@ -20,7 +20,7 @@
       <li>
         <a
           href="{{ route('about') }}"
-          class="hover:text-green-400 font-medium {{ request.url() === route('about') ? 'border-b-2 border-green-400 text-green-400 font-semibold' : '' }}"
+          class="hover:text-green-400 font-medium transition-colors {{ request.url() === route('about') ? 'border-b-2 border-green-400 text-green-400 font-semibold' : '' }}"
         >About</a>
       </li>
       <li>
@@ -31,25 +31,50 @@
       </li>
     </ul>
 
-    <a
-      href="{{ route('checkout') }}"
-      class="flex items-center justify-center text-gray-100 hover:text-green-400 transition-transform transform hover:scale-110"
-      aria-label="Go to Checkout"
-    >
-      <svg
-        class="w-7 h-7"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 28 28"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
-        />
-      </svg>
-    </a>
+    <div class="flex items-center gap-4">
+      @if(session.has('auth_user'))
+        <span class="font-medium">Halo, {{ session.get('auth_user').name }}</span>
+
+        <a
+          href="#"
+          class="flex items-center justify-center text-gray-100 hover:text-green-400 transition-transform transform hover:scale-110"
+          aria-label="Go to Checkout"
+        >
+          <svg
+            class="w-7 h-7"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 28 28"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+            />
+          </svg>
+        </a>
+
+        <form action="{{ route('logout') }}" method="POST">
+          {{ csrfField() }}
+          <button
+            type="submit"
+            class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg text-sm transition-colors"
+          >
+            Logout
+          </button>
+        </form>
+
+      @else
+        <a href="{{ route('login.index') }}" class="font-medium hover:text-green-400 transition-colors">Login</a>
+        <a
+          href="{{ route('register.index') }}"
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg text-sm transition-colors"
+        >
+          Register
+        </a>
+      @endif
+    </div>
   </div>
 </nav>
