@@ -1,24 +1,18 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import hash from '@adonisjs/core/services/hash'
 import { registerValidator } from '#validators/auth'
+import User from '#models/user'
 
 export default class RegisterController {
   async index({ view }: HttpContext) {
     return view.render('pages/auth/register')
   }
 
-  async store({ request, response }: HttpContext) {
-    const data = request.only(['name', 'email', 'password', 'password_confirmation'])
-    const payload = await registerValidator.validate(data)
+  async store({ request, response, auth }: HttpContext) {
+    const payload = await request.validateUsing(registerValidator)
 
-    const hashedPassword = await hash.make(payload.password)
+    const user = await User.create(payload)
 
-    const newUser = {
-      name: payload.name,
-      email: payload.email,
-      password: hashedPassword,
-    }
-
-    return response.json(newUser)
+    await auth.use('web').login(user)
+    return response.redirect().toRoute('home')
   }
 }

@@ -32,8 +32,8 @@
     </ul>
 
     <div class="flex items-center gap-4">
-      @if(session.has('auth_user'))
-        <span class="font-medium">Halo, {{ session.get('auth_user').name }}</span>
+      @if(auth.isAuthenticated)
+        <span class="font-medium">Halo, {{ auth.user.name }}</span>
 
         <a
           href="#"

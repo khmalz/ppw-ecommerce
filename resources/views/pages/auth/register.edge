@@ -4,11 +4,15 @@
       Register Account
     </h1>
 
-    <form id="register-form" method="POST" action="{{ route('register.store') }}" class="space-y-4">
-      <input type="hidden" name="csrf_token" id="csrf_token" value="{{ csrfToken }}" />
-      @flashMessage('error')
+    <form method="POST" action="{{ route('register.store') }}" class="space-y-4">
+      {{ csrfField() }}
+      @if(flashMessages.has('errors'))
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-          {{ $message }}
+          @each(error in flashMessages.get('errors'))
+            <p>
+              {{ error.message }}
+            </p>
+          @end
         </div>
       @endif
       
@@ -64,57 +68,9 @@
       >Register</button>
 
       <p class="text-center text-sm text-gray-500 mt-3">
-        already have an account?
+        Already have an account?
         <a href="{{ route('login.index') }}" class="text-green-600 hover:underline">Login</a>
       </p>
     </form>
   @endslot
-@end
-
-@pushOnceTo("scripts")
-  <script>
-    document.getElementById("register-form").addEventListener("submit", async event => {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-      const errorMessageDiv = document.getElementById("error-message");
-      errorMessageDiv.classList.add("hidden");
-      const token = document.getElementById("csrf_token").value;
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            "X-Requested-With": "XMLHttpRequest",
-            Accept: "application/json",
-            "X-CSRF-TOKEN": token
-          }
-        });
-        const data = await response.json();
-        console.log(data);
-        if (!response.ok) {
-          if (response.status === 422 && data.errors) {
-            const errorText = data.errors.map(e => e.message).join("<br>");
-            errorMessageDiv.innerHTML = errorText;
-            errorMessageDiv.classList.remove("hidden");
-          }
-          throw new Error("Gagal mendaftar.");
-        }
-        const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-        const isEmailExist = existingUsers.some(user => user.email === data.email);
-        if (isEmailExist) {
-          errorMessageDiv.innerHTML = "Email ini sudah terdaftar.";
-          errorMessageDiv.classList.remove("hidden");
-          return;
-        }
-        existingUsers.push(data);
-        localStorage.setItem("users", JSON.stringify(existingUsers));
-        window.location.href = "/login";
-      } catch (error) {
-        console.error("Terjadi kesalahan:", error);
-        errorMessageDiv.innerHTML = "Terjadi kesalahan pada server. Silakan coba lagi.";
-        errorMessageDiv.classList.remove("hidden");
-      }
-    });
-  </script>
 @end

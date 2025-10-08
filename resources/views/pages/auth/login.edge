@@ -6,9 +6,9 @@
 
     <form method="POST" action="{{ route('login.store') }}" class="space-y-4">
       {{ csrfField() }}
-      @flashMessage('error')
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-          {{ $message }}
+      @if(flashMessages.has('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" role="alert">
+          {{ flashMessages.get('error') }}
         </div>
       @endif
       
@@ -35,8 +35,6 @@
         />
       </div>
 
-      <input type="hidden" name="users_data" id="users-data-input" />
-
       <button
         type="submit"
         class="w-full py-2.5 mt-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all"
@@ -48,17 +46,4 @@
       </p>
     </form>
   @endslot
-  
-@end
-
-@pushOnceTo("scripts")
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const usersJsonString = localStorage.getItem("users") || "[]";
-      const hiddenInput = document.getElementById("users-data-input");
-      if (hiddenInput) {
-        hiddenInput.value = usersJsonString;
-      }
-    });
-  </script>
 @end
