@@ -1,0 +1,9 @@
+@each(product in products)
+  @!productCard({ product: product })
+@else
+  <div class="col-span-full text-center py-12">
+    <p class="text-xl text-gray-500">
+      No products found matching your search.
+    </p>
+  </div>
+@end

@@ -1,15 +1,21 @@
 @layouts.main({ title: 'Products' })
   @slot('content')
-    <section class="px-8 py-4">
-      <h2 class="text-xl font-semibold">
+    <section class="px-8 py-4 flex flex-col md:flex-row justify-between md:items-center">
+      <h2 class="text-xl font-semibold mb-4">
         List Produk
       </h2>
+      <input
+        type="text"
+        id="product-search-input"
+        placeholder="Search by product name..."
+        class="w-full max-w-md px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+      />
     </section>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+    <section id="product-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
       @each(product in products)
         @!productCard({
-          product: product
+        product: product
         })
       @endeach
     </section>
