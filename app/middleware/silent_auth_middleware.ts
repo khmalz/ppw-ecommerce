@@ -11,6 +11,17 @@ export default class SilentAuthMiddleware {
   async handle(ctx: HttpContext, next: NextFn) {
     await ctx.auth.check()
 
+    let cartCount = 0
+
+    if (ctx.auth.isAuthenticated) {
+      const cart = ctx.session.get('cart', [])
+      cartCount = cart.reduce((total: number, item: any) => {
+        return total + item.quantity
+      }, 0)
+    }
+
+    ctx.view.share({ cartCount: cartCount })
+
     return next()
   }
 }

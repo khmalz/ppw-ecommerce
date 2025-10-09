@@ -25,24 +25,9 @@
 
       <div class="flex flex-wrap justify-center gap-8 px-6">
         @each(product in products)
-          <div
-            class="bg-white shadow-md rounded-lg overflow-hidden w-72 flex flex-col hover:-translate-y-2 hover:shadow-xl transition-all duration-200"
-          >
-            <img src="{{ product.imageUrl }}" alt="{{ product.name }}" class="h-48 w-full object-cover" />
-            <div class="p-4 text-center flex-grow">
-              <h3 class="text-lg font-semibold text-gray-800">
-                {{ product.name }}
-              </h3>
-            </div>
-            <div class="flex justify-between items-center border-t border-gray-200 p-4 bg-gray-50">
-              <p class="text-green-600 font-bold">
-                {{ product.price }}
-              </p>
-              <button
-                class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-1.5 rounded-lg transition-transform hover:scale-105"
-              >Buy</button>
-            </div>
-          </div>
+          @!productCard({
+          product: product
+          })
         @endeach
       </div>
 
