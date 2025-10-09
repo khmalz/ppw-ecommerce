@@ -29,7 +29,7 @@
                           Unit Price: ${{ item.price }}
                         </p>
                         <form
-                          action="{{ route('cart.destroy', { productId: item.id }) }}?_method=DELETE"
+                          action="{{ route('api.cart.destroy', { productId: item.id }) }}?_method=DELETE"
                           method="POST"
                           class="remove-item-form mt-2"
                         >
@@ -44,7 +44,7 @@
                     <div class="flex items-center gap-3">
                       <form
                         class="quantity-update-form"
-                        action="{{ route('cart.update', { productId: item.id }) }}?_method=PATCH"
+                        action="{{ route('api.cart.update', { productId: item.id }) }}?_method=PATCH"
                         method="POST"
                       >
                         {{ csrfField() }}
@@ -107,7 +107,7 @@
             </button>
               @if(cart.length > 0)
                 <form
-                  action="{{ route('cart.destroy') }}?_method=DELETE"
+                  action="{{ route('api.cart.destroy') }}?_method=DELETE"
                   method="POST"
                   class="clear-cart-form mt-4 text-center"
                 >

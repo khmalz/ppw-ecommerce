@@ -13,14 +13,14 @@
     <p class="text-green-600 font-bold">
       ${{ product.price }}
     </p>
-    <form action="{{ route('cart.store') }}" method="POST" class="add-to-cart-form">
+    <form action="{{ route('api.cart.store') }}" method="POST" class="add-to-cart-form">
       {{ csrfField() }}
       <input type="hidden" name="productId" value="{{ product.id }}" />
-          <button
-            type="submit"
-            class="w-full bg-gradient-to-br from-green-500 to-green-600 text-white font-semibold px-4 py-2 rounded-md hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition"
-          >
-            Add to Cart
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-br from-green-500 to-green-600 text-white font-semibold px-4 py-2 rounded-md hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition"
+      >
+        Add to Cart
       </button>
     </form>
   </div>

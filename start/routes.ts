@@ -29,13 +29,4 @@ router.post('/login', [LoginController, 'store']).as('login.store')
 
 router.post('/logout', [LoginController, 'destroy']).as('logout')
 
-router
-  .group(() => {
-    router.get('', [CartController, 'index']).as('index')
-    router.post('', [CartController, 'store']).as('store')
-    router.patch('/:productId', [CartController, 'update']).as('update')
-    router.delete('/:productId?', [CartController, 'destroy']).as('destroy')
-  })
-  .prefix('/cart')
-  .as('cart')
-  .use(middleware.auth())
+router.get('/cart', [CartController, 'index']).as('cart.index').use(middleware.auth())
